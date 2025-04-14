@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scam Awareness</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <h1>RiskRadar</h1>
+      <button class="lang-btn">EN</button>
+    </header>
+
+    <!-- Home -->
+    <section class="screen active" id="home-screen">
+      <div class="home"><img src="logo.png" alt="RiskRadar Logo" class="logo-img"/>
+
+        <h3>Welcome!</h3>
+        <p>Sharpen your instincts and learn how to spot scams 💡</p>
+        <button class="btn pink" onclick="loadRandomScenario()">Start Game</button>
+        <p class="progress-label">Your Progress<br>Level <span id="level-progress">1</span></p>
+        <div class="dots">
+          <span class="dot filled"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Game -->
+    <section class="screen" id="game-screen">
+      <h3 id="level-title">Level</h3>
+<p id="progress-count" style="font-weight: bold; color: #555;"></p>
+      <p id="scenario-text"></p>
+      <div class="choices">
+        <button class="btn danger" onclick="answer('scam')">⚠️ Scam</button>
+        <button class="btn safe" onclick="answer('real')">✅ Real</button>
+      </div>
+    </section>
+
+    <!-- Result -->
+    <section class="screen" id="result-screen">
+      <h3>Result</h3>
+      <p id="result-msg"></p>
+      <p>🎯 Score: <span id="score">0</span></p>
+      <div id="badge" class="badge hidden">🏅 You've earned a Scam Spotter Badge!</div>
+      <button class="btn pink" onclick="loadRandomScenario()">⏭️ Next Level</button>
+    </section>
+
+    <!-- Nav -->
+    <footer class="nav">
+      <button class="nav-btn" onclick="goToHome()">🏠 Home</button>
+      <a href="levels.html" class="nav-btn">📊 Levels</a>
+
+    </footer>
+
+    <audio id="click-sound" src="click.mp3" preload="auto"></audio>
+    <audio id="success-sound" src="success.mp3" preload="auto"></audio>
+    <audio id="fail-sound" src="fail.mp3" preload="auto"></audio>
+<audio id="intro-sound" src="intro.mp3" preload="auto"></audio>
+    <script src="script.js"></script>
+  </div>
+<div id="fun-fact" style="text-align:center; margin-top: 20px; font-style: italic; color: #555;"></div>
+
+<!-- Final Score Screen -->
+<section class="screen" id="final-screen">
+  <h2>Well done!</h2>
+  <p id="final-score"></p>
+  <div id="final-badge" class="badge"></div>
+  <button class="btn pink" onclick="resetGame()">🔁 Play Again</button>
+  <button class="btn" onclick="goToHome()">🏠 Return Home</button>
+</section>
+
+</body>
+</html>
